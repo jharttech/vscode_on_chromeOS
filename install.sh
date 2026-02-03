@@ -16,11 +16,26 @@ sleep 3
 wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O code_amd64.deb
 sleep 2
 
+deb_file="code_amd64.deb"
+if dpkg-deb --info "$deb_file" > /dev/null 2&>1; then
+    echo ""
+    echo ""
+    echo "File Exists and is a valid .deb package. Continuing Script!"
+    sleep 3
+else
+    echo ""
+    echo ""
+    echo "Error: $deb_file is missing or corrupted. Closing Script at this time!!"
+    sleep 3
+    rm $deb_file
+    sleep 1
+    exit
+
 echo ""
 echo ""
 echo "Now going to install vscode from the deb file"
 sleep 3
-sudo dpkg -i code_amd64.deb
+sudo dpkg -i $deb_file
 sleep 2
 
 #Check to see if the installation of vscode was successfull or if there were errors
@@ -31,7 +46,7 @@ if [[ "$status" == "install ok installed" ]]; then
     echo ""
     echo "VSCode was fully installed and ready to launch from the app drawer."
     sleep 5
-    rm code_amd64.deb
+    rm $deb_file
     sleep 1
     rm ./install.sh
     sleep 2
