@@ -11,13 +11,15 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install libnspr4 libnss3 -y
 
 #Download the needed deb file
+echo ""
+echo ""
 echo "Now going to download the latest Linux x64 stable build deb file"
 sleep 3
 wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O code_amd64.deb
 sleep 2
 
 deb_file="code_amd64.deb"
-if dpkg-deb --info "$deb_file" > /dev/null 2&>1; then
+if dpkg-deb --info "$deb_file" > /dev/null 2>&1; then
     echo ""
     echo ""
     echo "File Exists and is a valid .deb package. Continuing Script!"
