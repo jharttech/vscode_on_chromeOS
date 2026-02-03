@@ -16,6 +16,8 @@ sleep 3
 wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O code_amd64.deb
 sleep 2
 
+echo ""
+echo ""
 echo "Now going to install vscode from the deb file"
 sleep 3
 sudo dpkg -i code_amd64.deb
@@ -25,6 +27,8 @@ sleep 2
 package_name="code"
 status=$(sudo dpkg-query -W -f='${Status}' "$package_name" 2>/dev/null)
 if [[ "$status" == "install ok installed" ]]; then
+    echo ""
+    echo ""
     echo "VSCode was fully installed and ready to launch from the app drawer."
     sleep 5
     rm code_amd64.deb
@@ -33,6 +37,8 @@ if [[ "$status" == "install ok installed" ]]; then
     sleep 2
     kill -9 $PPID
 else
+    echo ""
+    echo ""
     echo "VSCode install issue detected.  Current status: $status"
     sleep 3
     echo "Correct the issues above and run the install.sh script again.  Script closing at this time!!"
