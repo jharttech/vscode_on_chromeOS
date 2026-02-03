@@ -14,6 +14,11 @@ sudo apt install libnspr4 libnss3 -y
 echo "Now going to download the latest Linux x64 stable build deb file"
 sleep 3
 wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O code_amd64.deb
+sleep 2
+
+echo "Now going to install vscode from the deb file"
+sleep 3
+sudo dpkg -i code_amd64.deb
 
 sleep 5
 
