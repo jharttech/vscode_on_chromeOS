@@ -30,6 +30,7 @@ else
     rm $deb_file
     sleep 1
     exit
+fi
 
 echo ""
 echo ""
