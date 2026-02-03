@@ -7,7 +7,7 @@
 # Install needed apt packages
 echo "Now going to upgrade packages and install needed packages"
 sleep 3
-sudo apt update && apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 sudo apt install libnspr4 libnss3 -y
 
 #Download the needed deb file
